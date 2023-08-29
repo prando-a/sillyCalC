@@ -1,20 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: prando-a <prando-a@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/10 15:35:57 by prando-a          #+#    #+#             */
-/*   Updated: 2023/08/28 16:14:54 by prando-a         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
-int	ft_isint(char *str)
+int	ft_str_islf(char *str)
 {
 	int	i;
 	int	num_check;
@@ -59,11 +47,11 @@ int	ft_isint(char *str)
 
 int	arg_check(char *str, int mode)
 {
-	if (ft_isint(str) != 0)
+	if (ft_str_islf(str) != 0)
 	{
 		if (mode == 1)
 		{
-			if (ft_isint(str) == 1)
+			if (ft_str_islf(str) == 1)
 				return (printf("%lld", atoll(str)), 0);
 			else
 				return (printf("%f", atof(str)), 0);
@@ -77,7 +65,7 @@ int	arg_check(char *str, int mode)
 			|| (str[0] == '*' && !str[1]) || (str[0] == '/' && !str[1]))
 			return (1);
 	}
-	return (printf("INVALID NUMBER AND / OR OPERATION "), -1);
+	return (printf("\tINVALID NUMBER AND / OR OPERATION"), -1);
 }
 
 int	main(int argc, char **argv)
@@ -129,6 +117,6 @@ int	main(int argc, char **argv)
 	res_int = (long long)res;
 	res_frac = res - res_int;
 	if (!res_frac)
-		return (printf("%.Lf", res_int), 0);
-	return (printf("%Lf", res), 0);
+		return (printf("%.0Lf", res_int), 0);
+	return (printf("%.3Lf", res), 0);
 }
